@@ -8,27 +8,19 @@ class App extends React.Component {
   state={
     nominees: [],
     apiKey: `${process.env.REACT_APP_API_KEY}`,
-    // apiKeyForm: "",
     searchTerm: "",
     currentSearch: "",
     page: 1,
     searchResults: []
   }
 
-  componentDidMount(){
+  componentDidMount(){ //fetches from rails backend
     fetch("http://localhost:3000/nominees")
-    // fetch("./nomineeData.json")
         .then(resp => resp.json())
         .then(data => this.setState({nominees: data}))
   }
-
-  handleApiKeyForm = (e) => {this.setState({apiKeyForm: e.target.value})}
-
-  enterApiKey = (e) => {
-    e.preventDefault()
-    this.setState({apiKey: e.target.value, apiKeyForm: ""})}
   
-  search = (e) => {
+  searchIMDB = (e) => { //uses inputed search term to search omdb
     e.preventDefault()
     fetch(`http://www.omdbapi.com/?apikey=${this.state.apiKey}&type=movie&s=${this.state.searchTerm}&page=${this.state.page}`)
         .then(resp => resp.json())
@@ -38,13 +30,14 @@ class App extends React.Component {
       }))
   }
 
-  handleChange = (e) => {this.setState({searchTerm: e.target.value})}
+  handleChange = (e) => { //handles the text change in the searchbox
+    this.setState({searchTerm: e.target.value})}
   
-  handleNewNominee = (newNominee) => {
-    console.log(newNominee)
+  handleNewNominee = (newNominee) => { //adds new nominee to nominees state without reloading
     this.setState({nominees: [...this.state.nominees, newNominee]})
   }
-  handleNomineeUpdate = (e) => {
+
+  handleNomineeUpdate = (e) => { //removes nominee from nominees state without reloading
     console.log(e)
     let updatedNominees = this.state.nominees.filter((nominee) => {
       if (nominee.id === e){
@@ -60,10 +53,7 @@ class App extends React.Component {
     return (
       <div >
         <div className="defaultCenter">
-          {/* <form onSubmit={this.enterApiKey}>
-            <input placeholder="Enter API Key..." onChange={this.handleApiKeyForm}/>
-          </form> */}
-          <form onSubmit={this.search}>
+          <form onSubmit={this.searchIMDB}>
             <input placeholder="Search Movie..." onChange={this.handleChange}/>
           </form>
         </div>

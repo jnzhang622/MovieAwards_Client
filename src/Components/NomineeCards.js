@@ -2,7 +2,7 @@ import React from 'react';
 
 class NomineeCards extends React.Component{
 
-  handleDelete = () => {
+  handleDelete = () => { //deletes nominee from the backend
     fetch(`http://localhost:3000/nominees/${this.props.movie.id}`, {
         method: "DELETE",
         headers: {

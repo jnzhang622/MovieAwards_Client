@@ -2,7 +2,6 @@ import React from 'react';
 import NomineeCards from "./NomineeCards";
 
 function NomineesContainer(props) {
-  // console.log(props.nominees.nominees)
   return (
     <div >
         {

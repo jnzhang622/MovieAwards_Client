@@ -2,7 +2,7 @@ import React from 'react';
 
 class MovieCard extends React.Component{
 
-  handleSubmit = (e) => {
+  handleSubmit = (e) => { //adds new nominee to backend
     e.preventDefault()
     fetch(`http://localhost:3000/nominees`, {
         method: 'POST',
