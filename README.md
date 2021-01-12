@@ -4,7 +4,7 @@ To start run "npm install" in the terminal.
 
 While you wait, please create a ".env" file in the main directory
 
-and add "REACT_APP_API_KEY=<your OMDB API key>" to the env file.
+and add "REACT_APP_API_KEY=(your OMDB API key)" to the env file.
 
 
 Next please clone down my Ruby on Rails Backend API with
