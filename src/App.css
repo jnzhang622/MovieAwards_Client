@@ -1,5 +1,6 @@
 body{
   background-color: rgb(31, 31, 31);
+  /* background-image: url("./Components/background.jpg"); */
   color: white;
   background-size: 100% ;
 }
@@ -19,7 +20,19 @@ body{
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  width: 60%;
+  width: 100%;
+  padding: 10px;
+}
+.imdbFormInput{
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: .5cm;
+  width: 40%;
+  padding: 10px;
 }
 .mainCont{
   justify-content: center;

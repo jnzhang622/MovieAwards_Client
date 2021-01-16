@@ -54,7 +54,7 @@ class App extends React.Component {
       <div className="defaultCenter">
         <div className="imdbFormDiv">
           <form onSubmit={this.searchIMDB} className="imdbForm">
-            <input className="imdbForm"
+            <input className="imdbFormInput"
               placeholder="Search Movie..." 
               onChange={this.handleChange}
               />
