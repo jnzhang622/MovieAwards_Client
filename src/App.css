@@ -9,6 +9,18 @@ body{
   display: flex;
   flex-direction: column;
 }
+.imdbFormDiv{
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.imdbForm{
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+}
 .mainCont{
   justify-content: center;
   display: flex;

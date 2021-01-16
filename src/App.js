@@ -51,10 +51,13 @@ class App extends React.Component {
   render(){
     console.log(this.state.nominees)
     return (
-      <div >
-        <div className="defaultCenter">
-          <form onSubmit={this.searchIMDB}>
-            <input placeholder="Search Movie..." onChange={this.handleChange}/>
+      <div className="defaultCenter">
+        <div className="imdbFormDiv">
+          <form onSubmit={this.searchIMDB} className="imdbForm">
+            <input className="imdbForm"
+              placeholder="Search Movie..." 
+              onChange={this.handleChange}
+              />
           </form>
         </div>
         <div className="mainCont">
