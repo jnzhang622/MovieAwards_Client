@@ -10,6 +10,11 @@ body{
   display: flex;
   flex-direction: column;
 }
+.defaultButton{
+  height: 80px;
+  color: white;
+  background-color: black;
+}
 .imdbFormDiv{
   /* border-color: #83c9de;
   border-style: solid;
