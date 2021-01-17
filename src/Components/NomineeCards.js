@@ -17,7 +17,7 @@ class NomineeCards extends React.Component{
   render(){
     return (
       <div className="nomineeCard">
-          <h5 width="1000px" >{this.props.movie.Title} ({this.props.movie.Year})</h5>
+          {/* <h5>{this.props.movie.Title} ({this.props.movie.Year})</h5> */}
           <a href={`https://www.imdb.com/title/${this.props.movie.imdbID}`}>
             <img src={this.props.movie.Poster} 
               width='80px'

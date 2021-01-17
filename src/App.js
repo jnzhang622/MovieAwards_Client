@@ -10,6 +10,7 @@ class App extends React.Component {
     apiKey: `${process.env.REACT_APP_API_KEY}`,
     searchTerm: "",
     currentSearch: "",
+    searchCategory: "",
     page: 1,
     searchResults: []
   }
@@ -22,7 +23,7 @@ class App extends React.Component {
   
   searchIMDB = (e) => { //uses inputed search term to search omdb
     e.preventDefault()
-    fetch(`http://www.omdbapi.com/?apikey=${this.state.apiKey}&type=movie&s=${this.state.searchTerm}&page=${this.state.page}`)
+    fetch(`http://www.omdbapi.com/?apikey=${this.state.apiKey}${this.state.searchCategory}&s=${this.state.searchTerm}&page=${this.state.page}`)
         .then(resp => resp.json())
         .then(data => this.setState({ 
           searchResults: data,
@@ -38,7 +39,7 @@ class App extends React.Component {
   }
 
   handleNomineeUpdate = (e) => { //removes nominee from nominees state without reloading
-    console.log(e)
+    // console.log(e)
     let updatedNominees = this.state.nominees.filter((nominee) => {
       if (nominee.id === e){
         return false
@@ -48,8 +49,13 @@ class App extends React.Component {
     this.setState({nominees: updatedNominees})
   }
 
+  changeSearchCategory = (e) => {
+    console.log(e)
+    this.setState({searchCategory: e.target.value})
+  }
+
   render(){
-    console.log(this.state.nominees)
+    console.log(this.state.searchCategory)
     return (
       <div className="defaultCenter">
         <div className="imdbFormDiv">
@@ -59,6 +65,23 @@ class App extends React.Component {
               onChange={this.handleChange}
               />
           </form>
+          <div>
+            <select class="dropbtn" onChange={this.changeSearchCategory}>
+              <option value={""}></option>
+              <option value={"&type=movie"}>Movie</option>
+              <option value={"&type=series"}>Series</option>
+              <option value={"&type=episode"}>Episode</option>
+            </select>
+          </div>
+          {/* <div class="dropdown">
+            <button class="dropbtn">{this.changeSearchCategory}</button>
+            <div class="dropdown-content" onClick={this.changeSearchCategory}>
+              <a href="#">All</a>
+              <a href="#">Movies</a>
+              <a href="#">Series</a>
+              <a href="#">Episode</a>
+            </div>
+          </div> */}
         </div>
         <div className="mainCont">
           <div className="searchSubCont">
