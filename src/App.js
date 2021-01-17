@@ -49,8 +49,7 @@ class App extends React.Component {
     this.setState({nominees: updatedNominees})
   }
 
-  changeSearchCategory = (e) => {
-    console.log(e)
+  changeSearchCategory = (e) => { //change filter
     this.setState({searchCategory: e.target.value})
   }
 
@@ -59,29 +58,21 @@ class App extends React.Component {
     return (
       <div className="defaultCenter">
         <div className="imdbFormDiv">
-          <form onSubmit={this.searchIMDB} className="imdbForm">
-            <input className="imdbFormInput"
-              placeholder="Search Movie..." 
-              onChange={this.handleChange}
-              />
-          </form>
-          <div>
-            <select class="dropbtn" onChange={this.changeSearchCategory}>
-              <option value={""}></option>
+            <form onSubmit={this.searchIMDB} className="imdbForm">
+              <input className="imdbFormInput"
+                placeholder="Search Movie..." 
+                onChange={this.handleChange}
+                />
+            </form>
+          <div className="filterDiv">
+            <h4>Filter:</h4>
+            <select className="filterDropdown" onChange={this.changeSearchCategory}>
+              <option value={""}>None</option>
               <option value={"&type=movie"}>Movie</option>
               <option value={"&type=series"}>Series</option>
               <option value={"&type=episode"}>Episode</option>
             </select>
           </div>
-          {/* <div class="dropdown">
-            <button class="dropbtn">{this.changeSearchCategory}</button>
-            <div class="dropdown-content" onClick={this.changeSearchCategory}>
-              <a href="#">All</a>
-              <a href="#">Movies</a>
-              <a href="#">Series</a>
-              <a href="#">Episode</a>
-            </div>
-          </div> */}
         </div>
         <div className="mainCont">
           <div className="searchSubCont">
