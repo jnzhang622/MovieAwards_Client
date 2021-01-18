@@ -24,7 +24,8 @@ class NomineeCards extends React.Component{
                 width='80px'
                 alt={this.props.movie.Title}/>
             </a>
-            <button className="defaultButton" onClick={this.handleDelete}>Remove from Nominees</button>
+            <button className="removeNomineeButton" onClick={this.handleDelete}>
+              Remove from Nominees</button>
         </div>
       </div>
     )
