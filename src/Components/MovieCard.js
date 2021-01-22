@@ -1,4 +1,5 @@
 import React from 'react';
+import noImage from './w13911i0.jpg'
 
 class MovieCard extends React.Component{
 
@@ -21,11 +22,14 @@ class MovieCard extends React.Component{
         .then(data => {this.props.handleNewNominee(data)})
   }
   render() {
+    console.log(this.props.movie.Poster)
     return (
       <div className="searchCard">
           <h5>{this.props.movie.Title} ({this.props.movie.Year})</h5>
           <a href={`https://www.imdb.com/title/${this.props.movie.imdbID}`}>
-            <img src={this.props.movie.Poster} 
+            <img src={(this.props.movie.Poster !== "N/A") ?
+              this.props.movie.Poster : noImage
+            }
               width="200px" 
               href={`https://www.imdb.com/title/${this.props.movie.imdbID}`}
               alt={this.props.movie.Title}/>
